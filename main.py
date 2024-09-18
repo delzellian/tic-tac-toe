@@ -57,7 +57,6 @@ while True:
     elif " " not in game_board:
         print("\nTie!\n")
         break
-        
     player_move("O")
     if check_win("O"):
         print_board()
