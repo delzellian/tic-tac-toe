@@ -1,5 +1,3 @@
-GAME_STATE = True
-
 game_board = [" " for x in range(9)]
 
 def print_board():
@@ -45,43 +43,23 @@ def check_win(mark):
     else:
         return False
 
-def player_choice():
-    choice = input("\nDo you want to play again? (y/n): ")
-    if choice.lower() == "y":
-        return True
-    else:
-        return False
-
 def reset_board():
     global game_board
     game_board = [" " for x in range(9)]
 
-while GAME_STATE == True:
+while True:
     print_board()
     player_move("X")
     print_board()
     if check_win("X"):
         print("\nPlayer 1 wins!\n")
-        player_choice()
-        if player_choice() == True:
-            reset_board()
-        elif player_choice() == False:
-            GAME_STATE = False
-        
+        break  
     elif " " not in game_board:
         print("\nTie!\n")
-        player_choice()
-        if player_choice() == True:
-            reset_board()
-        elif player_choice() == False:
-            GAME_STATE = False
+        break
         
     player_move("O")
     if check_win("O"):
         print_board()
         print("\nPlayer 2 wins!\n")
-        player_choice()
-        if player_choice() == True:
-            reset_board()
-        elif player_choice() == False:
-            GAME_STATE = False
+        break
